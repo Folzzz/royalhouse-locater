@@ -12,7 +12,8 @@ const tbody = table.getElementsByTagName('tbody')[0];
 
 // Fetch locations from API
 async function getFellowLocation() {
-    const res = await fetch('http://localhost:5000/api/v1/locate');
+    // const res = await fetch('http://localhost:5000/api/v1/locate');
+    const res = await fetch('https://rhfellowship-locator.onrender.com/api/v1/locate');
     const {data} = await res.json();
 
     console.log(data);

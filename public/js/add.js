@@ -22,7 +22,14 @@ async function addStore(e) {
   };
 
   try {
-    const res = await fetch('http://localhost:5000/api/v1/locate', {
+    // const res = await fetch('http://localhost:5000/api/v1/locate', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(sendBody)
+    // });
+    const res = await fetch('https://rhfellowship-locator.onrender.com/api/v1/locate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

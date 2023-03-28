@@ -31,7 +31,10 @@ getFellowLocation();
 delBtn.addEventListener('click', () => {
     const id = delBtn.getAttribute('data-id');
 
-    fetch(`http://localhost:5000/api/v1/locate/${id}`, {
+    // fetch(`http://localhost:5000/api/v1/locate/${id}`, {
+    //   method: 'DELETE',
+    // })
+    fetch(`https://rhfellowship-locator.onrender.com/api/v1/locate/${id}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -66,7 +69,14 @@ async function editStore(e) {
     };
   
     try {
-      const res = await fetch(`http://localhost:5000/api/v1/locate/${queryString}`, {
+      // const res = await fetch(`http://localhost:5000/api/v1/locate/${queryString}`, {
+      //   method: 'PUT',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify(sendBody)
+      // });
+      const res = await fetch(`https://rhfellowship-locator.onrender.com/api/v1/locate/${queryString}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
