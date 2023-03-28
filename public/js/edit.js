@@ -11,7 +11,7 @@ console.log(queryString);
 
 // load details into html
 async function getFellowLocation() {
-    const res = await fetch(`http://localhost:5000/api/v1/locate/${queryString}`);
+    const res = await fetch(`https://rhfellowship-locator.onrender.com/api/v1/locate/${queryString}`);
     const {data} = await res.json();
 
     console.log(data);
@@ -89,7 +89,8 @@ async function editStore(e) {
       }
   
       alert('Location edited!');
-      window.location.href = '/public/index.html';
+      // window.location.href = '/public/index.html';
+      window.location.href = '/index.html';
     } catch (err) {
       alert(err);
       return;
