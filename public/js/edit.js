@@ -42,7 +42,7 @@ delBtn.addEventListener('click', () => {
           console.log('Data deleted successfully');
           // delete location and go back to index page
           alert('Location deleted!');
-          window.location.href = '/public/index.html';
+          window.location.href = '/index.html';
         } else {
           console.error('Failed to delete data');
         }
