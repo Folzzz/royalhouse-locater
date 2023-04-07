@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // enable cors
-app.use(cors());
+// app.use(cors());
 // access control middleware
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
