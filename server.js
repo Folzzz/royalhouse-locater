@@ -21,12 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // enable cors
-// app.use(cors());
-// access control middleware
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-});
+app.use(cors());
 
 // set static folder
 app.use(express.static(path.join(__dirname, 'public')));
