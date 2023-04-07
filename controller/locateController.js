@@ -71,6 +71,48 @@ const addLocation = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc BREAKDOWN USER LOCATION
+const breakLocation = asyncHandler(async (req, res) => {
+    try {
+        if (!req.body) {
+            return res.status(400).json({
+                status: 'failure',
+                message: 'Add text field'
+            })
+        }
+        console.log(req.body);
+
+        const { address } = req.body;
+        const loc = await geocoder.geocode(address);
+        console.log(loc);
+
+        // breakdown location details
+        const userBreakLocation = {
+            address: loc[0].formattedAddress,
+            postalCode: loc[0].zipcode,
+            userLong: loc[0].longitude,
+            userLat: loc[0].latitude,
+            location: {
+                type: 'Point',
+                coordinates: [loc[0].longitude, loc[0].latitude],
+                zipCode: loc[0].zipcode
+            }
+        }
+
+        return res.status(200).json({
+            status: 'success',
+            data: userBreakLocation
+        });
+
+    } catch (error) {
+        console.error(error);
+        if(error.code === 11000) {
+            return res.status(400).json({ error: 'Invalid Address' });
+        }
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
 // @desc EDIT A LOCATION
 const editLocation = asyncHandler(async (req, res) => {
     try {
@@ -173,5 +215,6 @@ module.exports = {
     addLocation,
     editLocation,
     deleteLocation,
-    getSingleLocation
+    getSingleLocation,
+    breakLocation
 }
